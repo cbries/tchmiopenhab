@@ -1,0 +1,57 @@
+﻿/* General theme independed control css. */
+
+.TcHmi_Controls_TcHmiOpenHabControls_BatteryTs {
+    overflow: hidden;
+}
+
+.TcHmi_Controls_TcHmiOpenHabControls_BatteryTs-Template {
+    width: 100%;
+    height: 100%;
+    background-image: url('Icons/classic/battery-0.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    .TcHmi_Controls_TcHmiOpenHabControls_BatteryTs-Template .state {
+        width: 25%;
+        height: 25%;
+        top: 50%;
+        left: 5%;
+        text-align: left;
+        margin: 0;
+        position: absolute;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        background-image: url('Icons/idle.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .TcHmi_Controls_TcHmiOpenHabControls_BatteryTs-Template .label {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+/* If the main use for this control is interaction
+    uncomment the following lines to give user feedback:
+    This overlays the whole control with a white color
+    and changes the mouse cursor */
+
+/*
+.TcHmi_Controls_TcHmiOpenHabControls_BatteryTs.TcHmi_Controls_System_TcHmiControl-operate-disallowed::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 100;
+    cursor: not-allowed;
+}
+*/

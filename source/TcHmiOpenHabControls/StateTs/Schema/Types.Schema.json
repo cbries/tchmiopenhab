@@ -1,0 +1,58 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.Controls.TcHmiOpenHabControls.StateTs": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "StateTs",
+      "frameworkControlNamespace": "TcHmi.Controls.TcHmiOpenHabControls"
+    },
+    "TcHmi.Controls.TcHmiOpenHabControls.StateTs.MapItem": {
+      "type": "object",
+      "title": "MapItem",
+      "properties": {
+        "state": {
+          "$ref": "tchmi:general#/definitions/Number"
+        },
+        "stateHumanReadable": {
+          "$ref": "tchmi:general#/definitions/String"
+        },
+        "stateIcon": {
+          "$ref": "tchmi:framework#/definitions/Path"
+        }
+      },
+      "required": [
+        "state",
+        "stateHumanReadable",
+        "stateIcon"
+      ],
+      "propertiesMeta": [
+        {
+          "displayName": "State of an OpenHAB Item",
+          "name": "state",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "displayName": "Human Readable",
+          "name": "stateHumanReadable",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        },
+        {
+          "displayName": "Icon",
+          "name": "stateIcon",
+          "defaultValue": null,
+          "defaultValueInternal": null
+        }
+      ]
+    },
+    "TcHmi.Controls.TcHmiOpenHabControls.StateTs.Mappings": {
+      "type": "array",
+      "title": "Mappings",
+      "items": {
+        "$ref": "#/definitions/TcHmi.Controls.TcHmiOpenHabControls.StateTs.MapItem"
+      }
+    }
+  }
+}

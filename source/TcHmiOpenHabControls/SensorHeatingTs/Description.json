@@ -1,0 +1,175 @@
+﻿{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "SensorHeatingTs",
+  "namespace": "TcHmi.Controls.TcHmiOpenHabControls",
+  "displayName": "Sensor Heating",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.TcHmiOpenHabControls.BaseControlTs",
+  "description": "Current heating value, i.e. set point temperature of Homematic",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 75,
+      "height": 75
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/icon.png",
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "template": "Template.html",
+  "dependencyFiles": [
+    {
+      "name": "SensorHeatingTs.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+  "themes": {
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    },
+    "Base-Dark": {
+      "resources": [
+        {
+          "name": "Themes/Base-Dark/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    }
+  },
+  "attributes": [
+    {
+      "name": "data-tchmi-heat",
+      "propertyName": "Heating",
+      "propertySetterName": "setHeat",
+      "propertyGetterName": "getHeat",
+      "displayName": "Setpoint",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "openHAB",
+      "description": "The current heating target value",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": true,
+      "defaultValue": 12,
+      "defaultValueInternal": false
+    },
+    {
+      "name": "data-tchmi-mode",
+      "propertyName": "Mode",
+      "propertySetterName": "setMode",
+      "propertyGetterName": "getMode",
+      "displayName": "Heat Mode",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:framework#/definitions/TcHmi.Controls.TcHmiOpenHabControls.SensorHeatingTs.HeatMode",
+      "category": "openHAB",
+      "description": "The current heating mode, e.g. Normal, Holiday of Off",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": true,
+      "defaultValue": 3,
+      "defaultValueInternal": false
+    },
+    {
+      "name": "data-tchmi-boost",
+      "propertyName": "HeatingBoost",
+      "propertySetterName": "setBoost",
+      "propertyGetterName": "getBoost",
+      "displayName": "Boost State",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/Boolean",
+      "category": "openHAB",
+      "description": "The current boost state",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": true,
+      "defaultValue": false,
+      "defaultValueInternal": false
+    },
+    {
+      "name": "data-tchmi-boost-counter",
+      "propertyName": "HeatingBoostCounter",
+      "propertySetterName": "setBoostCounter",
+      "propertyGetterName": "getBoostCounter",
+      "displayName": "Boost Counter (seconds)",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "openHAB",
+      "description": "The current remaining boost count in seconds",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": true,
+      "defaultValue": 300,
+      "defaultValueInternal": false
+    },
+    {
+      "name": "data-tchmi-temperature",
+      "propertyName": "Temperature",
+      "propertySetterName": "setTemperature",
+      "propertyGetterName": "getTemperature",
+      "displayName": "Current Temperature",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "openHAB",
+      "description": "The current environment temperature of the room or location",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": true,
+      "defaultValue": 12,
+      "defaultValueInternal": false
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [],
+  "events": [],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    }
+  ]
+}

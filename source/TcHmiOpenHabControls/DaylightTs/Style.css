@@ -1,0 +1,88 @@
+﻿/* General theme independed control css. */
+
+.TcHmi_Controls_TcHmiOpenHabControls_DaylightTs {
+    overflow: hidden;
+}
+
+.TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template {
+    width: 100%;
+    height: 100%;
+}
+
+    .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .labelNow {
+        position: absolute;
+        height: 100%;
+        text-align: center;
+        z-index: 10;
+    }
+
+        .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .labelNow .text {
+            z-index: 3;
+            padding-top: 38px;
+        }
+
+    .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .imageNow {
+        position: absolute;
+        width: 100%;
+    }
+
+        .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .imageNow img {
+            width: 42px;
+            height: 42px;
+        }
+
+
+
+    .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .labelSunrise,
+    .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .labelSunset {
+        position: absolute;
+        height: 100%;
+        text-align: center;
+    }
+
+        .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .labelSunrise .text,
+        .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .labelSunset .text {
+            z-index: 3;
+            padding-top: 38px;
+        }
+
+
+    .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .imageSunrise,
+    .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .imageSunset {
+        position: absolute;
+        width: 100%;
+    }
+
+        .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .imageSunrise img,
+        .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .imageSunset img {
+            width: 42px;
+            height: 42px;
+        }
+
+
+
+    .TcHmi_Controls_TcHmiOpenHabControls_DaylightTs-Template .line {
+        width: 100%;
+        height: 5px;
+        border-bottom: 3px solid white;
+        position: absolute;
+    }
+
+/* If the main use for this control is interaction
+    uncomment the following lines to give user feedback:
+    This overlays the whole control with a white color
+    and changes the mouse cursor */
+
+/*
+.TcHmi_Controls_TcHmiOpenHabControls_DaylightTs.TcHmi_Controls_System_TcHmiControl-operate-disallowed::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 100;
+    cursor: not-allowed;
+}
+*/

@@ -1,0 +1,191 @@
+﻿{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "BaseControlTs",
+  "namespace": "TcHmi.Controls.TcHmiOpenHabControls",
+  "displayName": "BaseControlTs",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": false,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.System.TcHmiControl",
+  "description": "This description text will be used as a Tooltip in Visual Studio.",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 150,
+      "height": 150
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/16x16.png",
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "template": "Template.html",
+  "dependencyFiles": [
+    {
+      "name": "BaseControlTs.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+  "themes": {
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    },
+    "Base-Dark": {
+      "resources": [
+        {
+          "name": "Themes/Base-Dark/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    }
+  },
+  "attributes": [
+    {
+      "name": "data-tchmi-text-color",
+      "propertyName": "TextColor",
+      "propertySetterName": "setTextColor",
+      "propertyGetterName": "getTextColor",
+      "displayName": "TextColor",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 10,
+      "type": "tchmi:framework#/definitions/SolidColor",
+      "category": "Colors",
+      "description": "",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": true,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    },
+    {
+      "name": "data-tchmi-text-font-family",
+      "propertyName": "TextFontFamily",
+      "propertySetterName": "setTextFontFamily",
+      "propertyGetterName": "getTextFontFamily",
+      "displayName": "TextFontFamily",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 60,
+      "type": "tchmi:framework#/definitions/FontFamily",
+      "category": "Text",
+      "description": "Comma separated list of family name or keyword: 'serif', 'sans-serif', 'monospace'.",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    },
+    {
+      "name": "data-tchmi-text-font-size",
+      "propertyName": "TextFontSize",
+      "propertySetterName": "setTextFontSize",
+      "propertyGetterName": "getTextFontSize",
+      "displayName": "TextFontSize",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 20,
+      "type": "tchmi:framework#/definitions/MeasurementValue",
+      "category": "Text",
+      "description": "The size of the font. Percent values are relative to the parent elements font size.",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": 150
+    },
+    {
+      "name": "data-tchmi-text-font-size-unit",
+      "propertyName": "TextFontSizeUnit",
+      "propertySetterName": "setTextFontSizeUnit",
+      "propertyGetterName": "getTextFontSizeUnit",
+      "refTo": "TextFontSize",
+      "displayName": "TextFontSizeUnit",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 20,
+      "type": "tchmi:framework#/definitions/MeasurementUnit",
+      "category": "Text",
+      "description": "Could be 'px' or for relative sizing '%'.",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": "%"
+    },
+    {
+      "name": "data-tchmi-text-font-style",
+      "propertyName": "TextFontStyle",
+      "propertySetterName": "setTextFontStyle",
+      "propertyGetterName": "getTextFontStyle",
+      "displayName": "TextFontStyle",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 60,
+      "type": "tchmi:framework#/definitions/FontStyle",
+      "category": "Text",
+      "description": "'Normal', 'Italic' (slanted with special glyphs), 'Oblique' (slanted normal glyphs) or 'Auto' for inherited.",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": "Bold"
+    },
+    {
+      "name": "data-tchmi-text-font-weight",
+      "propertyName": "TextFontWeight",
+      "propertySetterName": "setTextFontWeight",
+      "propertyGetterName": "getTextFontWeight",
+      "displayName": "TextFontWeight",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 60,
+      "type": "tchmi:framework#/definitions/FontWeight",
+      "category": "Text",
+      "description": "'Normal', 'Bold' (glyphs with more weight) or 'Auto' for inherited.",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": "Bold"
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [],
+  "events": [],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    }
+  ]
+}

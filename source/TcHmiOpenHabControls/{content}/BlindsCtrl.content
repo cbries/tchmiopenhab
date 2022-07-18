@@ -1,0 +1,29 @@
+﻿<div id="BlindsCtrl" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="320" data-tchmi-height="240" data-tchmi-creator-viewport-height="480">
+
+    <div id="BlindsTs_Button_Auf" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="29" data-tchmi-height-unit="px" data-tchmi-left="210" data-tchmi-left-unit="px" data-tchmi-text="AUF" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="96" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+    </div>
+    <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="BlindsTs_Button_Auf_75" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="29" data-tchmi-height-unit="px" data-tchmi-left="210" data-tchmi-left-unit="px" data-tchmi-text="75% AUF" data-tchmi-top="41" data-tchmi-top-unit="px" data-tchmi-width="96" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+    </div>
+    <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="BlindsTs_Button_Auf_50" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="29" data-tchmi-height-unit="px" data-tchmi-left="210" data-tchmi-left-unit="px" data-tchmi-text="50% AUF" data-tchmi-top="72" data-tchmi-top-unit="px" data-tchmi-width="96" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+    </div>
+    <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="BlindsTs_Button_Auf_25" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="29" data-tchmi-height-unit="px" data-tchmi-left="210" data-tchmi-left-unit="px" data-tchmi-text="25% AUF" data-tchmi-top="103" data-tchmi-top-unit="px" data-tchmi-width="96" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+    </div>
+    <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="BlindsTs_Button_Auf_10" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="29" data-tchmi-height-unit="px" data-tchmi-left="210" data-tchmi-left-unit="px" data-tchmi-text="10% AUF" data-tchmi-top="134" data-tchmi-top-unit="px" data-tchmi-width="96" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+    </div>
+    <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="BlindsTs_Button_Auf_Lamellen" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="29" data-tchmi-height-unit="px" data-tchmi-left="210" data-tchmi-left-unit="px" data-tchmi-text="Lamellen" data-tchmi-top="165" data-tchmi-top-unit="px" data-tchmi-width="96" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+    </div>
+    <div data-tchmi-grid-row-index="0" data-tchmi-grid-column-index="0" id="BlindsTs_Button_Geschlossen" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="29" data-tchmi-height-unit="px" data-tchmi-left="210" data-tchmi-left-unit="px" data-tchmi-text="Geschlossen" data-tchmi-top="196" data-tchmi-top-unit="px" data-tchmi-width="96" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+    </div>
+    <div id="BlindsTs_Button_Up" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="58" data-tchmi-left-unit="px" data-tchmi-text="" data-tchmi-top="28" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-background-image="/TcHmiOpenHabControls/{content}/Images/angle-double-up.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%">
+    </div>
+    <div id="BlindsTs_Button_Down" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="58" data-tchmi-left-unit="px" data-tchmi-top="151" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-background-image="/TcHmiOpenHabControls/{content}/Images/angle-double-down.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%">
+    </div>
+    <div id="BlindsTs_Button_Stop" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="58" data-tchmi-left-unit="px" data-tchmi-top="87" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-background-image="/TcHmiOpenHabControls/{content}/Images/stop.svg" data-tchmi-background-image-width="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height="100" data-tchmi-background-image-height-unit="%">
+    </div>
+
+    <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+        {
+          "color": "rgba(248, 244, 244, 1)"
+        }
+    </script>
+</div>

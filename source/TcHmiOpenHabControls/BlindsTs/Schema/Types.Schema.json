@@ -1,0 +1,50 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.Controls.TcHmiOpenHabControls.BlindsTs": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "BlindsTs",
+      "frameworkControlNamespace": "TcHmi.Controls.TcHmiOpenHabControls"
+    },
+    "TcHmi.Controls.TcHmiOpenHabControls.BlindsTs.LookupItem": {
+      "type": "object",
+      "title": "LookupItem",
+      "properties": {
+        "resolvedValue": { "type": "number" },
+        "rangeStart": { "type": "number" },
+        "rangeEnd": { "type": "number" }
+      },
+      "required": [
+        "resolvedValue",
+        "rangeStart",
+        "rangeEnd"
+      ],
+      "propertiesMeta": [
+        {
+          "displayName": "Resolved Value",
+          "name": "resolvedValue"
+        },
+        {
+          "displayName": "Range Start",
+          "name": "rangeStart",
+          "defaultValue": 0,
+          "defaultValueInternal": 0
+        },
+        {
+          "displayName": "Range End",
+          "name": "rangeEnd",
+          "defaultValue": 1,
+          "defaultValueInternal": 1
+        }
+      ]
+    },
+    "TcHmi.Controls.TcHmiOpenHabControls.BlindsTs.LookupTable": {
+      "type": "array",
+      "title": "LookupTable",
+      "items": {
+        "$ref": "#/definitions/TcHmi.Controls.TcHmiOpenHabControls.BlindsTs.LookupItem"
+      }
+    }
+  }
+}

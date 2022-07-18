@@ -1,0 +1,85 @@
+﻿{
+  "$schema": "./ExtensionSettings.Schema.json",
+  "guid": "8b38ca37-0cb5-4579-907e-1d137f40e5ad",
+  "version": "1.0.0.0",
+  "configVersion": "1.0.0.15",
+  "policies": [
+    "StrictPropertyValidation"
+  ],
+  "symbols": {
+    "ListSymbols": {
+      "readValue": {
+        "function": true
+      }
+    },
+    "GetDefinitions": {
+      "readValue": {
+        "function": true
+      }
+    },
+    "GetSchema": {
+      "readValue": {
+        "function": true
+      }
+    },
+    "RefreshItems": {
+      "readValue": {
+        "function": true
+      },
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "hidden": false
+    },
+    "StartEventListening": {
+      "readValue": {
+        "function": true
+      },
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "hidden": false
+    },
+    "StopEventListening": {
+      "readValue": {
+        "function": true
+      },
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "hidden": false
+    },
+    "IsEventListenStarted": {
+      "readValue": {
+        "allOf": [
+          {
+            "$ref": "tchmi:general#/definitions/Boolean"
+          },
+          {
+            "readOnly": true
+          }
+        ]
+      },
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "hidden": false
+    },
+    "ItemCount": {
+      "readValue": {
+        "allOf": [
+          {
+            "$ref": "tchmi:general#/definitions/Integer"
+          },
+          {
+            "readOnly": true
+          }
+        ]
+      },
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "hidden": false
+    }
+  }
+}

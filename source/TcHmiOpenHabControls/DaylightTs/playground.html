@@ -1,0 +1,40 @@
+﻿<html>
+<head>
+    <title>Playground</title>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+$( document ).ready(function() {
+
+let pstart = moment().startOf('day').unix()
+let pend = moment().endOf('day').unix()
+
+let pcurrent = moment().unix();
+let delta = pend - pstart;
+let left = pend - pcurrent;
+let percentRemain = parseInt(parseFloat(left) / parseFloat(delta) * 100.0);
+let percentDone = parseInt(100.0 - percentRemain);
+console.log("Vergangen:   " + percentDone + " %");
+//console.log("Verbleibend: " + percentRemain + " %");
+
+let psunrise = moment().hour(5).minute(28).unix();
+let psunriseDelta = pend - psunrise;
+let psunriseRemain = parseInt(parseFloat(psunriseDelta) / parseFloat(delta) * 100.0);
+let psunriseDone = parseInt(100.0 - psunriseRemain);
+console.log("Sunrise:     " + psunriseDone + " %");
+
+let psunset = moment().hour(21).minute(37).unix();
+let psunsetDelta = pend - psunset;
+let psunsetRemain = parseInt(parseFloat(psunsetDelta) / parseFloat(delta) * 100.0);
+let psunsetDone = parseInt(100.0 - psunsetRemain);
+console.log("Sunset:      " + psunsetDone + " %");
+
+});
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

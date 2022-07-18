@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<AssemblyName>TcHmiOpenHabExtension</AssemblyName>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Company>www.cbries.de</Company>
+		<Description>Bridge between TwinCAT HMI and openHAB</Description>
+		<Copyright>Copyright © Dr. Christian Benjamin Ries 2022</Copyright>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TcHmiExtensionTypes>{5DF3DCF0-60A1-4102-985E-1810812D0E69}</TcHmiExtensionTypes>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TcHmiServerApiVersionNumberMajor>2</TcHmiServerApiVersionNumberMajor>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TcHmiInstallDir>$(registry:HKEY_CURRENT_USER\Software\Beckhoff\TwinCAT3\3.1@InstallDir)</TcHmiInstallDir>
+		<TcHmiInstallDir Condition="'$(TcHmiInstallDir)'==''">$(registry:HKEY_LOCAL_MACHINE\Software\Beckhoff\TwinCAT3\3.1@InstallDir)</TcHmiInstallDir>
+		<TcHmiInstallDir Condition="'$(TcHmiInstallDir)'==''">$(registry:HKEY_LOCAL_MACHINE\Software\Wow6432Node\Beckhoff\TwinCAT3\3.1@InstallDir)</TcHmiInstallDir>
+		<TcHmiEgineeringDir>$(TcHmiInstallDir)..\Functions\TE2000-HMI-Engineering</TcHmiEgineeringDir>
+		<TcHmiMsBuildPath Condition="'$(TcHmiMsBuildPath)' == ''">$(TcHmiEgineeringDir)\MSBuild\</TcHmiMsBuildPath>
+	</PropertyGroup>
+
+	<Import Project="$(TWINCAT3DIR)..\Functions\TE2000-HMI-Engineering\Infrastructure\TcHmiServer\imports\TcHmiServerExtensionCSharp.proj" />
+
+	<PropertyGroup>
+		<DefaultItemExcludes>$(DefaultItemExcludes);___initialBuild_of_this_extension.tmp</DefaultItemExcludes>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="System.Net.Http" />
+		<Reference Include="System.Web" />
+		<Reference Include="TcHmiSchemaGenerator">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>$(TcHmiEngineeringDir)MSBuild\TcHmiSchemaGenerator.dll</HintPath>
+		</Reference>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.14" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<ProjectGuid>8b38ca37-0cb5-4579-907e-1d137f40e5ad</ProjectGuid>
+		<IsPublishable>False</IsPublishable>
+		<Authors>Dr. Christian Benjamin Ries</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <Optimize>False</Optimize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <Optimize>True</Optimize>
+	</PropertyGroup>
+
+	<Target Name="GenerateReflectionInfo" AfterTargets="AddConfigMetadata">
+		<TcHmiMSBuildPkgMgt.TcHmiBuild TaskAction="GenerateServerConfig" OutputPath="$(TargetDir)" ProjectName="$(ProjectName)" ProjectGuid="$(ProjectGuid)" ProjectType="2" />
+		<TcHmiMSBuildPkgMgt.TcHmiBuild TaskAction="GenerateTypeScript" OutputPath="$(TargetDir)" ProjectName="$(ProjectName)" ProjectGuid="$(ProjectGuid)" ProjectType="2" />
+	</Target>
+
+</Project>

@@ -1,0 +1,208 @@
+﻿{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "SwitchTs",
+  "namespace": "TcHmi.Controls.TcHmiOpenHabControls",
+  "displayName": "Switch",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.TcHmiOpenHabControls.BaseControlTs",
+  "description": "A common switch which can be adapted to most scenarios to toggle states/switches/lights, etc.",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 150,
+      "height": 150
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/icon.png",
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "template": "Template.html",
+  "dependencyFiles": [
+    {
+      "name": "SwitchTs.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+  "themes": {
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    },
+    "Base-Dark": {
+      "resources": [
+        {
+          "name": "Themes/Base-Dark/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    }
+  },
+  "attributes": [
+    {
+      "name": "data-tchmi-name",
+      "propertyName": "Name",
+      "propertySetterName": "setName",
+      "propertyGetterName": "getName",
+      "displayName": "Name",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/String",
+      "category": "openHAB",
+      "description": "The display name of the switch",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    },
+    {
+      "name": "data-tchmi-clickable",
+      "propertyName": "Clickable",
+      "propertySetterName": "setClickable",
+      "propertyGetterName": "getClickable",
+      "displayName": "Clickable",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/Boolean",
+      "category": "openHAB",
+      "description": "Property to allow click events for this control",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": false,
+      "defaultValueInternal": false
+    },
+    {
+      "name": "data-tchmi-state",
+      "propertyName": "State",
+      "propertySetterName": "setState",
+      "propertyGetterName": "getState",
+      "displayName": "State",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/String",
+      "category": "openHAB",
+      "description": "When `State` equals `StateEnabled` the switch if enabled, when `State` equals `StateDisabled` the switch is disabled, in any other cases an misleading configuration is shown",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": false,
+      "defaultValueInternal": false
+    },
+    {
+      "name": "data-tchmi-state-enabled",
+      "propertyName": "StateEnabled",
+      "propertySetterName": "setStateEnabled",
+      "propertyGetterName": "getStateEnabled",
+      "displayName": "StateEnabled",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/String",
+      "category": "openHAB",
+      "description": "The state (human readble) to decide if the state is enabled`",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": "true",
+      "defaultValueInternal": "true"
+    },
+    {
+      "name": "data-tchmi-icon-enabled",
+      "propertyName": "IconEnabled",
+      "propertySetterName": "setIconEnabled",
+      "propertyGetterName": "getIconEnabled",
+      "displayName": "IconEnabled",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:framework#/definitions/Path",
+      "category": "openHAB",
+      "description": "The icon to show when the switch is `true` / `activated`",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    },
+    {
+      "name": "data-tchmi-state-disabled",
+      "propertyName": "StateDisabled",
+      "propertySetterName": "setStateDisabled",
+      "propertyGetterName": "getStateDisabled",
+      "displayName": "StateDisabled",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/String",
+      "category": "openHAB",
+      "description": "The state (human readble) to decide if the state is disabled`",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": "false",
+      "defaultValueInternal": "false"
+    },
+    {
+      "name": "data-tchmi-icon-disabled",
+      "propertyName": "IconDisabled",
+      "propertySetterName": "setIconDisabled",
+      "propertyGetterName": "getIconDisabled",
+      "displayName": "IconDisabled",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:framework#/definitions/Path",
+      "category": "openHAB",
+      "description": "The icon to show when the switch is `false` / `disabled`",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [],
+  "events": [],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    }
+  ]
+}

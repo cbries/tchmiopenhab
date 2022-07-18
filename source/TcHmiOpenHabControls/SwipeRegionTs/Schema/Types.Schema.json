@@ -1,0 +1,18 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.Controls.TcHmiOpenHabControls.SwipeRegionTs": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "SwipeRegionTs",
+      "frameworkControlNamespace": "TcHmi.Controls.TcHmiOpenHabControls"
+    },
+    "TcHmi.Controls.TcHmiOpenHabControls.SwipeRegionTs.ContentList": {
+      "type": "array",
+      "title": "Content Files",
+      "items": {
+        "$ref": "tchmi:framework#/definitions/ContentPath"
+      }
+    }
+  }
+}
