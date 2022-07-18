@@ -1,0 +1,132 @@
+﻿{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "StateTs",
+  "namespace": "TcHmi.Controls.TcHmiOpenHabControls",
+  "displayName": "State",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.TcHmiOpenHabControls.BaseControlTs",
+  "description": "This description text will be used as a Tooltip in Visual Studio.",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 150,
+      "height": 150
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/16x16.png",
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "template": "Template.html",
+  "dependencyFiles": [
+    {
+      "name": "StateTs.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+  "themes": {
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    },
+    "Base-Dark": {
+      "resources": [
+        {
+          "name": "Themes/Base-Dark/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    }
+  },
+  "attributes": [
+    {
+      "name": "data-tchmi-name",
+      "propertyName": "Name",
+      "propertySetterName": "setName",
+      "propertyGetterName": "getName",
+      "displayName": "Name",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/String",
+      "category": "openHAB",
+      "description": "The display name of the state",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    },
+    {
+      "name": "data-tchmi-state",
+      "propertyName": "State",
+      "propertySetterName": "setState",
+      "propertyGetterName": "getState",
+      "displayName": "State",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/String",
+      "category": "openHAB",
+      "description": "The current state to visualize, use `stateMapping` for inidividual converts or for showing humand readable info",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": 0.0,
+      "defaultValueInternal": 0.0
+    },
+    {
+      "name": "data-tchmi-state-mapping",
+      "propertyName": "StateMapping",
+      "propertySetterName": "setStateMapping",
+      "propertyGetterName": "getStateMapping",
+      "displayName": "StateMapping",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:framework#/definitions/TcHmi.Controls.TcHmiOpenHabControls.StateTs.Mappings",
+      "category": "openHAB",
+      "description": "A mapping for `State` to provide a human readable state",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [],
+  "events": [],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+﻿{
+  "modules": [
+    {
+      "type": "Package",
+      "nugetId": "Beckhoff.TwinCAT.HMI.Framework"
+    },
+    {
+      "type": "Package",
+      "nugetId": "Beckhoff.TwinCAT.HMI.Controls"
+    },
+    {
+      "type": "Resource",
+      "path": "./Libs/moment-with-locales.min.js"
+    },
+    {
+      "type": "Control",
+      "basePath": "./BaseControlTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./LampSwitchTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./BlindsTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./ContactWindowTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./ContactDoorTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./SensorHumidityTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./SensorTemperatureTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./SensorHeatingTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./SurveillanceTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./SwipeRegionTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./BatteryTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./SwitchTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./StateTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    },
+    {
+      "type": "Control",
+      "basePath": "./DaylightTs",
+      "descriptionFile": "Description.json",
+      "toolboxCategory": "TcHmiOpenHabControls:200"
+    }
+  ],
+  "provideMetadata": {
+    "toolbox": {
+      "TcHmiOpenHabControls": {
+        "200": "TwinCAT HMI OpenHAB"
+      }
+    }
+  },
+  "$schema": ".hmiframework/Schema/Manifest.Schema.json",
+  "apiVersion": 1
+}

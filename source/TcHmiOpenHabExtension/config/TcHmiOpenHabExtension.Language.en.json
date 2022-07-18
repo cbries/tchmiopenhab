@@ -1,0 +1,18 @@
+﻿{
+  "$schema": "./Language.Schema.json",
+  "locale": "en",
+  "localizedText": {
+    "ERROR_INIT": "Initializing extension TcHmiOpenHabExtension failed. Additional information: {0}",
+    "ERROR_CALL_COMMAND": "Calling command '{0}' failed! Additional information: {1}",
+    "CFG_INIT": "{0}",
+    "hostAddrDescription": "Remote openHAB host address / ip",
+    "hostPortDescription": "Remote openHAB tcp port between 0 and 65.535",
+    "apiKeyDescription": "Your individual openHAB API-Key for authorization",
+    "groupFilterDescription": "Comma seperated list of group names used to filter relevant openHAB items.",
+    "categoryGeneral": "General",
+    "hostAddr": "Hostname / IP",
+    "hostPort": "Port",
+    "apiKey": "API-Key",
+    "groupFilter": "Group Filter"
+  }
+}

@@ -1,0 +1,16 @@
+﻿[
+  {
+    "url": "BlindsCtrl.content",
+    "preload": true,
+    "keepAlive": false,
+    "loadSync": false,
+    "preloadBindings": false
+  },
+  {
+    "url": "HeatCtrl.content",
+    "preload": true,
+    "keepAlive": false,
+    "loadSync": false,
+    "preloadBindings": false
+  }
+]

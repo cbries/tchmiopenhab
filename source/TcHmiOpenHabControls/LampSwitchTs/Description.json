@@ -1,0 +1,95 @@
+﻿{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "LampSwitchTs",
+  "namespace": "TcHmi.Controls.TcHmiOpenHabControls",
+  "displayName": "Lamp Switch",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.System.TcHmiControl",
+  "description": "Switch a lamp on and off",
+  "defaultDesignerEvent": ".onPressed",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 60,
+      "height": 65
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/icon.png",
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "template": "Template.html",
+  "dependencyFiles": [
+    {
+      "name": "LampSwitchTs.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+  "themes": {
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    },
+    "Base-Dark": {
+      "resources": [
+        {
+          "name": "Themes/Base-Dark/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    }
+  },
+  "attributes": [
+    {
+      "name": "data-tchmi-state",
+      "propertyName": "State",
+      "propertySetterName": "setState",
+      "propertyGetterName": "getState",
+      "displayName": "State",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/Boolean",
+      "category": "openHAB",
+      "description": "When set to true the lamp is shining otherwise greyed",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": false,
+      "defaultValueInternal": false
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [],
+  "events": [],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    }
+  ]
+}

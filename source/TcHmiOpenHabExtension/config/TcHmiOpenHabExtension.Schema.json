@@ -1,0 +1,34 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "hostAddr": {
+      "configDescription": "hostAddrDescription",
+      "type": "string",
+      "category": "categoryGeneral",
+      "propertyOrder": 1
+    },
+    "hostPort": {
+      "configDescription": "hostPortDescription",
+      "type": "integer",
+      "category": "categoryGeneral",
+      "propertyOrder": 2,
+      "minValue": 0,
+      "maxValue": 65535
+    },
+    "apiKey": {
+      "configDescription": "apiKeyDescription",
+      "type": "string",
+      "category": "categoryGeneral",
+      "propertyOrder": 3
+    },
+    "groupFilter": {
+      "configDescription": "groupFilterDescription",
+      "type": "string",
+      "category": "categoryGeneral",
+      "propertyOrder": 4
+    }
+  },
+  "required": [ "hostAddr", "hostPort", "apiKey" ],
+  "additionalProperties": false
+}

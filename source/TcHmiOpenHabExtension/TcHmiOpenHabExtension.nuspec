@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+	<metadata>
+		<id>TcHmiOpenHabExtension</id>
+		<version>1.0.0.0</version>
+		<title>$title$</title>
+		<authors>Christian Benjamin Ries</authors>
+		<owners>Christian Benjamin Ries</owners>
+		<projectUrl>https://github.com/cbries/tchmiopenhab</projectUrl>
+		<license type="file">LICENSE.txt</license>
+		<icon>images/logo.png</icon>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>TwinCAT HMI server extension to connect with OpenHab</description>
+		<releaseNotes>None</releaseNotes>
+		<copyright>Copyright 2022</copyright>
+		<tags>TwinCAT HMI Server Extension OpenHab</tags>
+		<dependencies>
+			<group targetFramework="netstandard2.0">
+				<!-- Package dependencies -->
+			</group>
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="LICENSE.txt" target="" />
+		<file src="bin\Debug\**\Newtonsoft*.dll" target="runtimes\any\native\"/>
+		<file src="bin\Debug\**\TcHmiOpenHabExtension.dll" target="runtimes\any\native\"/>
+		<file src="bin\Debug\**\TcHmiOpenHabExtension.*.json" target="runtimes\any\native\"/>
+		<file src="images\logo.png" target="images\" />
+	</files>
+</package>

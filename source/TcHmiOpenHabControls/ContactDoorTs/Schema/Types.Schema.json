@@ -1,0 +1,16 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.Controls.TcHmiOpenHabControls.ContactDoorTs": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "ContactDoorTs",
+      "frameworkControlNamespace": "TcHmi.Controls.TcHmiOpenHabControls"
+    },
+    "TcHmi.Controls.TcHmiOpenHabControls.ContactDoorTs.State": {
+      "type": "string",
+      "enum": [ "OPEN", "CLOSED" ],
+      "default": "CLOSED"
+    }
+  }
+}

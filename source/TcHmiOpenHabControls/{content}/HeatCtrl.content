@@ -1,0 +1,162 @@
+<div id="HeatCtrl" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="301" data-tchmi-height="269">
+
+<div id="Heat_Button_Temperature_17" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="34" data-tchmi-height-unit="px" data-tchmi-left="27" data-tchmi-left-unit="px" data-tchmi-text="17 °C" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+</div>
+<div id="Heat_Button_Temperature_18" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="34" data-tchmi-height-unit="px" data-tchmi-left="27" data-tchmi-left-unit="px" data-tchmi-text="18 °C" data-tchmi-top="44" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+</div>
+<div id="Heat_Button_Temperature_19" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="34" data-tchmi-height-unit="px" data-tchmi-left="27" data-tchmi-left-unit="px" data-tchmi-text="19 °C" data-tchmi-top="78" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+</div>
+<div id="Heat_Button_Temperature_20" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="34" data-tchmi-height-unit="px" data-tchmi-left="27" data-tchmi-left-unit="px" data-tchmi-text="20 °C" data-tchmi-top="112" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+</div>
+<div id="Heat_Button_Temperature_21" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="34" data-tchmi-height-unit="px" data-tchmi-left="27" data-tchmi-left-unit="px" data-tchmi-text="21 °C" data-tchmi-top="146" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+</div>
+<div id="Heat_Button_Temperature_22" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="34" data-tchmi-height-unit="px" data-tchmi-left="27" data-tchmi-left-unit="px" data-tchmi-text="22 °C" data-tchmi-top="180" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+</div>
+<div id="Heat_Button_Temperature_23" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="34" data-tchmi-height-unit="px" data-tchmi-left="27" data-tchmi-left-unit="px" data-tchmi-text="23 °C" data-tchmi-top="214" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(248, 244, 244, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+{
+  "left": 2,
+  "right": 2,
+  "top": 2,
+  "bottom": 2,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+{
+  "left": "Solid",
+  "right": "Solid",
+  "top": "Solid",
+  "bottom": "Solid"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
+{
+  "topLeft": 8.0,
+  "topRight": 8.0,
+  "bottomLeft": 8.0,
+  "bottomRight": 8.0,
+  "topLeftUnit": "px",
+  "topRightUnit": "px",
+  "bottomLeftUnit": "px",
+  "bottomRightUnit": "px"
+}
+</script>
+
+<div id="Heat_Button_Boost" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleSwitch" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="171" data-tchmi-left-unit="px" data-tchmi-text="Boost" data-tchmi-top="180" data-tchmi-top-unit="px" data-tchmi-width="103" data-tchmi-width-unit="px">
+</div>
+
+<div id="Heat_SwitchMode" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCombobox" 
+	 data-tchmi-combobox-text="Heizprofil wählen..." 
+	 data-tchmi-height="26" data-tchmi-height-unit="px" 
+	 data-tchmi-left="160" data-tchmi-left-unit="px" 
+	 data-tchmi-top="219" data-tchmi-top-unit="px"  
+	 data-tchmi-width="110" data-tchmi-width-unit="px" 
+	 data-tchmi-selected-id="3">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-src-data" type="application/json">
+[
+  {
+    "id": 1.0,
+    "text": "Normal",
+    "value": "Normal"
+  },
+  {
+    "id": 2.0,
+    "text": "Urlaub",
+    "value": "Urlaub"
+  },
+  {
+    "id": 3.0,
+    "text": "Aus",
+    "value": "Aus"
+  }
+]
+</script>
+</div>	
+	
+<div id="Heat_Current" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTachometer" data-tchmi-base-animation-time="1000" data-tchmi-height="125" data-tchmi-height-unit="px" data-tchmi-label-range="10" data-tchmi-left="149" data-tchmi-left-unit="px" data-tchmi-show-labels="false" data-tchmi-show-ticks="true" data-tchmi-show-value-text="true" data-tchmi-top="32" data-tchmi-top-unit="px" data-tchmi-width="125" data-tchmi-width-unit="px" data-tchmi-min-value="12" data-tchmi-max-value="30">
+<script data-tchmi-target-attribute="data-tchmi-range" type="application/json">
+[
+  {
+    "color": {
+      "color": "rgba(46, 135, 149, 1)"
+    },
+    "start": 12.0,
+    "end": 15.0
+  },
+  {
+    "color": {
+      "color": "rgba(176, 214, 40, 1)"
+    },
+    "start": 15.0,
+    "end": 19.0
+  },
+  {
+    "color": {
+      "color": "rgba(237, 230, 43, 1)"
+    },
+    "start": 19.0,
+    "end": 23.0
+  },
+  {
+    "color": {
+      "color": "rgba(225, 138, 44, 1)"
+    },
+    "start": 23.0,
+    "end": 25.0
+  },
+  {
+    "color": {
+      "color": "rgba(234, 79, 92, 1)"
+    },
+    "start": 25.0,
+    "end": 30.0
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-value-format" type="application/json">
+{
+  "objectType": "Function",
+  "active": true,
+  "fn": "TcHmi.Functions.Beckhoff.GaugeValueFormatter",
+  "fnParams": [
+    {
+      "objectType": "StaticValue",
+      "valueType": "tchmi:general#/definitions/Number",
+      "value": 1.0
+    }
+  ]
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-tick-definition" type="application/json">
+{
+  "mainTickRange": 1.0,
+  "subTickRange": 0.0
+}
+</script>
+</div>
+<div id="TextCurrent" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="136" data-tchmi-left-unit="px" data-tchmi-text="Aktuell" data-tchmi-top="11" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-weight="Bold">
+</div>
+</div>

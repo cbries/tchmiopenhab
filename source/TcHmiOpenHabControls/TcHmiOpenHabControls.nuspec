@@ -1,0 +1,30 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+	<metadata>
+		<id>TcHmiOpenHabControls</id>
+		<version>1.0.0</version>
+		<title>TcHmiOpenHabControls</title>
+		<authors>Christian Benjamin Ries</authors>
+		<owners>Christian Benjamin Ries</owners>
+		<projectUrl>https://github.com/cbries/tchmiopenhab</projectUrl>
+		<license type="file">LICENSE.txt</license>
+		<icon>images/logo.png</icon>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>TwinCAT HMI based controls to visualize openHab items.</description>
+		<releaseNotes>None</releaseNotes>
+		<copyright>Copyright 2022</copyright>
+		<tags>TwinCAT HMI Controls OpenHab</tags>
+		<dependencies>
+			<group targetFramework="native1.12-tchmi">
+				<dependency id="Microsoft.TypeScript.MSBuild" version="4.7.4" />
+				<dependency id="Beckhoff.TwinCAT.HMI.Controls" version="12.756.1" />
+			</group>
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="LICENSE.txt" target="" />
+		<file src="**\*" target="runtimes\native1.12-tchmi\" exclude=".eslintrc.json;**\*.nuspec;**\*.tpl.json;**\*.hmi*proj;**\~*;**\*.tmp;**\tmp*;**\*.user;**\tsconfig.json;**\*.log;**\*.bak;**\obj\**\*;packages.config;packages.xsd;.hmiframework\**\*;.hmipkgs\**\*;.git;.gitignore;.gitattributes" />
+		<file src="images\logo.png" target="images\" />
+		<file src="{content}\Images\**\*" target="tools\native1.12-tchmi\{gallery}" />
+	</files>
+</package>

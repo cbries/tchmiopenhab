@@ -1,0 +1,16 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.Controls.TcHmiOpenHabControls.ContactWindowTs": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "ContactWindowTs",
+      "frameworkControlNamespace": "TcHmi.Controls.TcHmiOpenHabControls"
+    },
+    "TcHmi.Controls.TcHmiOpenHabControls.ContactWindowTs.State": {
+      "type": "string",
+      "enum": [ "OPEN", "CLOSED", "AJAR", "NOSENSOR" ],
+      "default": "CLOSED"
+    }
+  }
+}

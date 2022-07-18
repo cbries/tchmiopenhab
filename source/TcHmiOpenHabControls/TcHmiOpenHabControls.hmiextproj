@@ -1,0 +1,2401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.4.7.4\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.4.7.4\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <TcHmiDirectory>$(registry:HKEY_CURRENT_USER\Software\Beckhoff\TwinCAT3\3.1@InstallDir)\..\Functions\TE2000-HMI-Engineering</TcHmiDirectory>
+    <TcHmiDirectory Condition="'$(TcHmiDirectory)'==''">$(registry:HKEY_LOCAL_MACHINE\Software\Beckhoff\TwinCAT3\3.1@InstallDir)\..\Functions\TE2000-HMI-Engineering</TcHmiDirectory>
+    <TcHmiDirectory Condition="'$(TcHmiDirectory)'==''">$(registry:HKEY_LOCAL_MACHINE\Software\Wow6432Node\Beckhoff\TwinCAT3\3.1@InstallDir)\..\Functions\TE2000-HMI-Engineering</TcHmiDirectory>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">TwinCAT HMI</Platform>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <AvailablePlatforms>TwinCAT HMI</AvailablePlatforms>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <TcHmiCreatorVersion>[1.12,]</TcHmiCreatorVersion>
+    <TargetFrameworkMoniker>native,Version=v1.12.0,Profile=tchmi</TargetFrameworkMoniker>
+    <TargetFramework>native1.12-tchmi</TargetFramework>
+    <ProjectTypeGuids>{3B740506-4966-4147-AB1F-357FE08946EA}</ProjectTypeGuids>
+    <ProjectGuid>d97eda00-c932-4869-a0fd-8649ed1de21e</ProjectGuid>
+    <ProjectName>TcHmiOpenHabControls</ProjectName>
+    <Name>TcHmiOpenHabControls</Name>
+    <HmiInitial>1.0.0.0</HmiInitial>
+    <HmiRecent>1.0.0.0</HmiRecent>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|TwinCAT HMI' ">
+    <PlatformTarget>TwinCAT HMI</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefaultNamespace>TcHmiOpenHabControls</DefaultNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|TwinCAT HMI' ">
+    <PlatformTarget>TwinCAT HMI</PlatformTarget>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefaultNamespace>TcHmiOpenHabControls</DefaultNamespace>
+  </PropertyGroup>
+  <PropertyGroup Label="TwinCatHMI">
+    <TcHmiExtensionTypes>{CC169D49-EEDD-4BAF-8151-63DF12EDD7B4}</TcHmiExtensionTypes>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TwinCATHmi_Tasks>$(TcHmiDirectory)\MSBuild\Beckhoff.TwinCAT.HMI.tasks</TwinCATHmi_Tasks>
+    <TwinCATHmi_Targets>$(TcHmiDirectory)\MSBuild\Beckhoff.TwinCAT.HMI.targets</TwinCATHmi_Targets>
+  </PropertyGroup>
+  <Target Name="GetFrameworkPaths" />
+  <Import Project="$(TwinCATHmi_Tasks)" />
+  <Import Project="$(TwinCATHmi_Targets)" />
+  <ItemGroup>
+    <Content Include="BaseControlTs\BaseControlTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BaseControlTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BaseControlTs\Icons\16x16.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BaseControlTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BaseControlTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BaseControlTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BaseControlTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BaseControlTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\BatteryTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\charging.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\classic\battery-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\classic\battery-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\classic\battery-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\classic\battery-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\classic\battery-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\classic\battery-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\classic\battery-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\classic\battery-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\classic\battery-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\classic\battery-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\classic\battery-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\classic\battery2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\discharging.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\error.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\icon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Icons\idle.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BatteryTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\BlindsTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\classic\blinds-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\classic\blinds-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\classic\blinds-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\classic\blinds-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\classic\blinds-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\classic\blinds-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\classic\blinds-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\classic\blinds-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\classic\blinds-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\classic\blinds-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\classic\blinds-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\classic\blinds.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Icons\icon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BlindsTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactDoorTs\ContactDoorTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactDoorTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactDoorTs\Icons\classic\door-closed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactDoorTs\Icons\classic\door-open.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactDoorTs\Icons\classic\door.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactDoorTs\Icons\icon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactDoorTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactDoorTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactDoorTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactDoorTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactDoorTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\ContactWindowTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\Icons\classic\contact-ajar.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\Icons\classic\contact-closed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\Icons\classic\contact-nosensor.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\Icons\classic\contact-open.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\Icons\classic\contact.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\Icons\icon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ContactWindowTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\DaylightTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\global.d.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\Icons\icon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\Icons\icon_white.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\Icons\sun.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\Icons\sunrise.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\Icons\sunset.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\Icons\time.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\playground.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="DaylightTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LampSwitchTs\Icons\icon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Libs\moment-with-locales.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Libs\moment.d.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Libs\moment.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="packages.config">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\state-normal.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\state-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\state-holiday.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\icon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\icon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\icon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="StateTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="StateTs\Icons\16x16.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="StateTs\Icons\dummy64x64.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="StateTs\Icons\wrong.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="StateTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="StateTs\StateTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="StateTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="StateTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="StateTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="StateTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SurveillanceTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SurveillanceTs\Icons\icon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SurveillanceTs\Icons\novideo.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SurveillanceTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SurveillanceTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SurveillanceTs\SurveillanceTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SurveillanceTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SurveillanceTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SurveillanceTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\global.d.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Icons\16x16.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Icons\24x24.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Icons\32x32.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Icons\64x64.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Libs\OwlCarousel\assets\ajax-loader.gif">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Libs\OwlCarousel\assets\owl.carousel.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Libs\OwlCarousel\assets\owl.carousel.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Libs\OwlCarousel\assets\owl.theme.default.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Libs\OwlCarousel\assets\owl.theme.default.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Libs\OwlCarousel\assets\owl.theme.green.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Libs\OwlCarousel\assets\owl.theme.green.min.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Libs\OwlCarousel\assets\owl.video.play.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Libs\OwlCarousel\LICENSE">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Libs\OwlCarousel\owl.carousel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Libs\OwlCarousel\owl.carousel.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\SwipeRegionTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwipeRegionTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwitchTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwitchTs\Icons\classic\switch-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwitchTs\Icons\classic\switch-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwitchTs\Icons\icon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwitchTs\Icons\wrong.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwitchTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwitchTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwitchTs\SwitchTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwitchTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwitchTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SwitchTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\BlindsCtrl.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LampSwitchTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LampSwitchTs\Icons\classic\light-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LampSwitchTs\Icons\classic\light-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LampSwitchTs\Icons\classic\light.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LampSwitchTs\Icons\classic\lightbulb.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LampSwitchTs\LampSwitchTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LampSwitchTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LampSwitchTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LampSwitchTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LampSwitchTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LampSwitchTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-15.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-16.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-17.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-18.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-19.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-21.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-22.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-23.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-24.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-25.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Icons\classic\heating.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\SensorHeatingTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHeatingTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\classic\humidity-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\classic\humidity-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\classic\humidity-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\classic\humidity-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\classic\humidity-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\classic\humidity-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\classic\humidity-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\classic\humidity-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\classic\humidity-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\classic\humidity-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\classic\humidity-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Icons\classic\humidity.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\SensorHumidityTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorHumidityTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Description.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature-outdoor-35.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_cold.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_fridge-7.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_fridge-9.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_fridge.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_hot.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_indoor-19.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_indoor-21.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_indoor-24.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_indoor-26.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_indoor-28.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_indoor-5.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_indoor.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_outdoor-10.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_outdoor-20.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_outdoor-25.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_outdoor-30.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_outdoor-5.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Icons\classic\temperature_outdoor.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Schema\Types.Schema.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\SensorTemperatureTs.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Template.html">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Themes\Base-Dark\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SensorTemperatureTs\Themes\Base\Style.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="tsconfig.tpl.json">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+    </Content>
+    <Content Include="tsconfig.json">
+      <SubType>Content</SubType>
+      <Visible>true</Visible>
+      <DependentUpon>tsconfig.tpl.json</DependentUpon>
+    </Content>
+    <Content Include="{content}\HeatCtrl.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\angle-double-down.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\angle-double-left.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\angle-double-right.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\angle-double-up.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\angle-down.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\angle-left.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\angle-right.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\angle-up.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\arrow-down.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\arrow-left.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\arrow-right.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\arrow-up.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{content}\Images\stop.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\alarm.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\attic.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\baby_1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\baby_2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\baby_3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\baby_4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\baby_5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\baby_6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\bad.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\bath.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\battery2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\batterylevel-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\batterylevel-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\batterylevel-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\batterylevel-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\batterylevel-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\batterylevel-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\batterylevel-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\batterylevel-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\batterylevel-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\batterylevel-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\batterylevel-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\batterylevel.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\bedroom.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\bedroom_blue.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\bedroom_orange.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\bedroom_red.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\blinds-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\blinds-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\blinds-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\blinds-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\blinds-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\blinds-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\blinds-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\blinds-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\blinds-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\blinds-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\blinds-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\blinds.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\bluetooth.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\boy_1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\boy_2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\boy_3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\boy_4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\boy_5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\boy_6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\brightness.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\brightness1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\calendar.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\camera.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\carbondioxide.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cellar.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\chart.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\christmastree-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\christmastree-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\christmastree.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinema.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinemascreen-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinemascreen-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinemascreen-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinemascreen-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinemascreen-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinemascreen-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinemascreen-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinemascreen-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinemascreen-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinemascreen-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinemascreen-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cinemascreen.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cistern-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cistern-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cistern-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cistern-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cistern-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cistern-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cistern-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cistern-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cistern-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cistern-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cistern-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\cistern.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\climate-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\climate.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\clock1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\clock1.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\colorlight.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\colorpicker.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\colorwheel.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\contact-ajar.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\contact-closed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\contact-open.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\contact.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\corridor.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\current_export01.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\current_import01.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\dashboard.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\door-closed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\door-open.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\door.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\dryer-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\dryer-1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\dryer-2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\dryer-3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\dryer-4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\dryer-5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\dryer.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\energy.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\error.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\fan.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\fan_box.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\fan_ceiling.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\faucet.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\fire-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\fire-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\fire.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\firstfloor.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\flow.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\flowpipe.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\frontdoor-closed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\frontdoor-open.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\frontdoor.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garage.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-ajar.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-closed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor-open.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garagedoor.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garage_detached.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garage_detached_selected.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garbagebio.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garbagebio.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garbagepapier.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garbagepapier.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garbagerest.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garbagerest.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garbagewertstoff.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garbagewertstoff.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\garden.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\gas.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\girl_1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\girl_2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\girl_3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\girl_4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\girl_5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\girl_6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\good.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\greenhouse.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\groundfloor.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\group.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-15.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-16.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-17.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-18.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-19.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-21.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-22.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-23.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-24.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-25.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heating.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heatingbw.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\heatingbw2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_thermometer-cold.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_thermometer-cold.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_thermometer-hot.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_thermometer-hot.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_thermometer-warm.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_thermometer-warm.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_thermometer.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_thermometer.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_window-closed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_window-closed.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_window-open.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_window-open.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_window.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\hmip_etrv_window.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\house.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity%2520%25.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\humidity.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\incline.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\keyring.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\kitchen.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\lawnmower.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\light.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\lightbulb.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\line-decline.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\line-incline.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\line-stagnation.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\line.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\lock-closed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\lock-open.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\lock.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\lowbattery-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\lowbattery-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\lowbattery.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\man_1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\man_2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\man_3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\man_4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\man_5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\man_6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\mediacontrol.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\microphone.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\money.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\moon.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\motion.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\movecontrol.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\network-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\network-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\network.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\niveau.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\none.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\office.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\oil.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\outdoorlight.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\pantry.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_1_1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_1_2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_1_3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_1_4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_1_5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_1_6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_2_1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_2_2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_2_3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_2_4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_2_5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_2_6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_3_1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_3_2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_3_3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_3_4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_3_5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_3_6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_4_1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_4_2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_4_3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_4_4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_4_5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_4_6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_5_1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_5_2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_5_3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_5_4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_5_5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_5_6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_6_1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_6_2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_6_3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_6_4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_6_5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\parents_6_6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\party.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\path2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\pie.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\piggybank.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\player.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\poweroutlet-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\poweroutlet-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\poweroutlet.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\poweroutlet_au.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\poweroutlet_eu.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\poweroutlet_uk.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\poweroutlet_us.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\presence-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\presence-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\presence.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\pressure.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\price.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\projector.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\projectstatus.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\pump.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\qualityofservice-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\qualityofservice-1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\qualityofservice-2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\qualityofservice-3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\qualityofservice-4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\qualityofservice.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\radiator.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rain.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\readme.txt">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\receiver-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\receiver-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\receiver.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\recorder.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\returnpipe.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rgb.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\riesfire.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\riesfire.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\riesheat.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\riesheat.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rollershutter-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rollershutter-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rollershutter-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rollershutter-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rollershutter-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rollershutter-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rollershutter-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rollershutter-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rollershutter-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rollershutter-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rollershutter-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\rollershutter.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\screen-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\screen-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\screen.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\settings.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sewerage-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sewerage-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sewerage-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sewerage-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sewerage-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sewerage-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sewerage-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sewerage-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sewerage-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sewerage-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sewerage-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sewerage.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\shield-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\shield-1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\shield.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\siren-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\siren-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\siren.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\slider-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\slider-10.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\slider-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\slider-20.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\slider-30.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\slider-40.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\slider-50.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\slider-60.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\slider-70.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\slider-80.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\slider-90.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\slider.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\smiley.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\smoke.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\snow.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sofa.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\softener.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\solarplant.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\soundvolume-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\soundvolume-100.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\soundvolume-33.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\soundvolume-66.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\soundvolume.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\soundvolume_mute.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\speedtest.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\speedtest_date.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\speedtest_download.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\speedtest_error.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\speedtest_ping.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\speedtest_reload.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\speedtest_run.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\speedtest_summary.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\speedtest_upload.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\status.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\suitcase.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sun.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sunrise.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sunrise.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sunset.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sunset.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sunshineduration.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sunshineduration1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\sun_clouds.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\switch-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\switch-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\switch.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature-outdoor-35.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_cold.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_fridge-7.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_fridge-9.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_fridge.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_hot.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_indoor-19.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_indoor-21.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_indoor-24.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_indoor-26.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_indoor-28.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_indoor-5.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_indoor.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_outdoor-10.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_outdoor-20.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_outdoor-25.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_outdoor-30.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_outdoor-5.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\temperature_outdoor.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\terrace.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\text.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\thumbsup0.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\time-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\time.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\toilet.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\unlocked.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\vacation.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\video.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\wallswitch-off.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\wallswitch-on.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\wallswitch.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\wardrobe.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\washingmachine.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\washingmachine_2-0.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\washingmachine_2-1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\washingmachine_2-2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\washingmachine_2-3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\washingmachine_2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\water.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\whitegood.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\wind.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\window-ajar.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\window-closed.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\window-open.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\window.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\woman_1.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\woman_2.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\woman_3.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\woman_4.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\woman_5.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\woman_6.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="{gallery}\openHAB\classic\zoom.png">
+      <SubType>Content</SubType>
+    </Content>
+    <HmiManifest Include="Manifest.json" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="Images\logo.png" />
+    <Content Include="TcHmiOpenHabControls.nuspec" />
+    <Content Include=".eslintrc.json">
+      <Visible>false</Visible>
+    </Content>
+    <Content Include=".tfignore">
+      <SubType>Content</SubType>
+      <Visible>false</Visible>
+    </Content>
+    <Content Include=".gitignore">
+      <SubType>Content</SubType>
+      <Visible>false</Visible>
+    </Content>
+    <Content Include="packages.xsd">
+      <SubType>Content</SubType>
+      <Visible>false</Visible>
+    </Content>
+    <HmiManifest Include="{content}\Manifest.json">
+      <SubType>HmiManifest</SubType>
+    </HmiManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BaseControlTs\" />
+    <Folder Include="BaseControlTs\Icons\" />
+    <Folder Include="BaseControlTs\Schema\" />
+    <Folder Include="BaseControlTs\Themes\" />
+    <Folder Include="BaseControlTs\Themes\Base-Dark\" />
+    <Folder Include="BaseControlTs\Themes\Base\" />
+    <Folder Include="BatteryTs\" />
+    <Folder Include="BatteryTs\Icons\" />
+    <Folder Include="BatteryTs\Icons\classic" />
+    <Folder Include="BatteryTs\Schema\" />
+    <Folder Include="BatteryTs\Themes\" />
+    <Folder Include="BatteryTs\Themes\Base-Dark\" />
+    <Folder Include="BatteryTs\Themes\Base\" />
+    <Folder Include="BlindsTs\" />
+    <Folder Include="BlindsTs\Icons\" />
+    <Folder Include="BlindsTs\Icons\classic" />
+    <Folder Include="BlindsTs\Schema\" />
+    <Folder Include="BlindsTs\Themes\" />
+    <Folder Include="BlindsTs\Themes\Base-Dark\" />
+    <Folder Include="BlindsTs\Themes\Base\" />
+    <Folder Include="ContactDoorTs\" />
+    <Folder Include="ContactDoorTs\Icons\" />
+    <Folder Include="ContactDoorTs\Icons\classic" />
+    <Folder Include="ContactDoorTs\Schema\" />
+    <Folder Include="ContactDoorTs\Themes\" />
+    <Folder Include="ContactDoorTs\Themes\Base-Dark\" />
+    <Folder Include="ContactDoorTs\Themes\Base\" />
+    <Folder Include="ContactWindowTs\" />
+    <Folder Include="ContactWindowTs\Icons\" />
+    <Folder Include="ContactWindowTs\Icons\classic" />
+    <Folder Include="ContactWindowTs\Schema\" />
+    <Folder Include="ContactWindowTs\Themes\" />
+    <Folder Include="ContactWindowTs\Themes\Base-Dark\" />
+    <Folder Include="ContactWindowTs\Themes\Base\" />
+    <Folder Include="DaylightTs\" />
+    <Folder Include="DaylightTs\Icons\" />
+    <Folder Include="DaylightTs\Schema\" />
+    <Folder Include="DaylightTs\Themes\" />
+    <Folder Include="DaylightTs\Themes\Base-Dark\" />
+    <Folder Include="DaylightTs\Themes\Base\" />
+    <Folder Include="Libs" />
+    <Folder Include="StateTs\" />
+    <Folder Include="StateTs\Icons\" />
+    <Folder Include="StateTs\Schema\" />
+    <Folder Include="StateTs\Themes\" />
+    <Folder Include="StateTs\Themes\Base-Dark\" />
+    <Folder Include="StateTs\Themes\Base\" />
+    <Folder Include="SurveillanceTs\" />
+    <Folder Include="SurveillanceTs\Icons\" />
+    <Folder Include="SurveillanceTs\Schema\" />
+    <Folder Include="SurveillanceTs\Themes\" />
+    <Folder Include="SurveillanceTs\Themes\Base-Dark\" />
+    <Folder Include="SurveillanceTs\Themes\Base\" />
+    <Folder Include="SwipeRegionTs\" />
+    <Folder Include="SwipeRegionTs\Icons\" />
+    <Folder Include="SwipeRegionTs\Libs" />
+    <Folder Include="SwipeRegionTs\Libs\OwlCarousel" />
+    <Folder Include="SwipeRegionTs\Libs\OwlCarousel\assets" />
+    <Folder Include="SwipeRegionTs\Schema\" />
+    <Folder Include="SwipeRegionTs\Themes\" />
+    <Folder Include="SwipeRegionTs\Themes\Base-Dark\" />
+    <Folder Include="SwipeRegionTs\Themes\Base\" />
+    <Folder Include="SwitchTs\" />
+    <Folder Include="SwitchTs\Icons\" />
+    <Folder Include="SwitchTs\Icons\classic" />
+    <Folder Include="SwitchTs\Schema\" />
+    <Folder Include="SwitchTs\Themes\" />
+    <Folder Include="SwitchTs\Themes\Base-Dark\" />
+    <Folder Include="SwitchTs\Themes\Base\" />
+    <Folder Include="{content}" />
+    <Folder Include="{content}\Images" />
+    <Folder Include="Images\" />
+    <Folder Include="LampSwitchTs\" />
+    <Folder Include="LampSwitchTs\Icons\" />
+    <Folder Include="LampSwitchTs\Icons\classic" />
+    <Folder Include="LampSwitchTs\Schema\" />
+    <Folder Include="LampSwitchTs\Themes\" />
+    <Folder Include="LampSwitchTs\Themes\Base-Dark\" />
+    <Folder Include="LampSwitchTs\Themes\Base\" />
+    <Folder Include="SensorHeatingTs\" />
+    <Folder Include="SensorHeatingTs\Icons\" />
+    <Folder Include="SensorHeatingTs\Icons\classic" />
+    <Folder Include="SensorHeatingTs\Schema\" />
+    <Folder Include="SensorHeatingTs\Themes\" />
+    <Folder Include="SensorHeatingTs\Themes\Base-Dark\" />
+    <Folder Include="SensorHeatingTs\Themes\Base\" />
+    <Folder Include="SensorHumidityTs\" />
+    <Folder Include="SensorHumidityTs\Icons\" />
+    <Folder Include="SensorHumidityTs\Icons\classic" />
+    <Folder Include="SensorHumidityTs\Schema\" />
+    <Folder Include="SensorHumidityTs\Themes\" />
+    <Folder Include="SensorHumidityTs\Themes\Base-Dark\" />
+    <Folder Include="SensorHumidityTs\Themes\Base\" />
+    <Folder Include="SensorTemperatureTs\" />
+    <Folder Include="SensorTemperatureTs\Icons\" />
+    <Folder Include="SensorTemperatureTs\Icons\classic" />
+    <Folder Include="SensorTemperatureTs\Schema\" />
+    <Folder Include="SensorTemperatureTs\Themes\" />
+    <Folder Include="SensorTemperatureTs\Themes\Base-Dark\" />
+    <Folder Include="SensorTemperatureTs\Themes\Base\" />
+    <Folder Include="{gallery}" />
+    <Folder Include="{gallery}\openHAB" />
+    <Folder Include="{gallery}\openHAB\classic" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PreBuildEventDependsOn>
+    </PreBuildEventDependsOn>
+    <PostBuildEventDependsOn>
+    </PostBuildEventDependsOn>
+  </PropertyGroup>
+  <Target Name="PreBuildEvent" Condition="'$(PreBuildEvent)'!=''" DependsOnTargets="$(PreBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PreBuildEvent)" />
+  </Target>
+  <Target Name="PostBuildEvent" Condition="'$(PostBuildEvent)' != '' and ('$(RunPostBuildEvent)'=='Always' or '$(RunPostBuildEvent)'=='OnOutputUpdated')" DependsOnTargets="$(PostBuildEventDependsOn)">
+    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" />
+  </Target>
+  <PropertyGroup>
+    <BuiltProjectOutputGroupDependsOn>
+			PreBuildEvent;
+			CoreBuild;
+			PostBuildEvent
+		</BuiltProjectOutputGroupDependsOn>
+    <CleanDependsOn>
+			BaseClean
+		</CleanDependsOn>
+  </PropertyGroup>
+  <Target Name="CoreBuild">
+  </Target>
+  <Target Name="Build" DependsOnTargets="$(BuiltProjectOutputGroupDependsOn)" />
+  <Target Name="Clean" DependsOnTargets="$(CleanDependsOn)" />
+  <Target Name="ReBuild" DependsOnTargets="Clean; Build" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.4.7.4\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.4.7.4\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.4.7.4\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.4.7.4\build\Microsoft.TypeScript.MSBuild.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.4.7.4\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.4.7.4\build\Microsoft.TypeScript.MSBuild.targets')" />
+</Project>

@@ -1,0 +1,170 @@
+﻿{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "SwipeRegionTs",
+  "namespace": "TcHmi.Controls.TcHmiOpenHabControls",
+  "displayName": "Swipe Region",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.System.TcHmiControl",
+  "description": "owlCarousel based region control to swipe between different Content.",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 320,
+      "height": 240
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/16x16.png",
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "template": "Template.html",
+  "dependencyFiles": [
+    {
+      "name": "Libs/OwlCarousel/assets/owl.carousel.min.css",
+      "type": "Stylesheet",
+      "description": "Library: OwlCarousel2"
+    },
+    {
+      "name": "Libs/OwlCarousel/assets/owl.theme.default.min.css",
+      "type": "Stylesheet",
+      "description": "Library: OwlCarousel2"
+    },
+    {
+      "name": "Libs/OwlCarousel/owl.carousel.min.js",
+      "type": "JavaScript",
+      "description": "Library: OwlCarousel2"
+    },
+    {
+      "name": "SwipeRegionTs.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+    "themes": {
+        "Base": {
+            "resources": [
+                {
+                    "name": "Themes/Base/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        },
+        "Base-Dark": {
+            "resources": [
+                {
+                    "name": "Themes/Base-Dark/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        }
+    },
+  "attributes": [
+    {
+      "name": "data-tchmi-contentlist",
+      "propertyName": "ContentList",
+      "propertySetterName": "setContentList",
+      "propertyGetterName": "getContentList",
+      "displayName": "Content List",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:framework#/definitions/TcHmi.Controls.TcHmiOpenHabControls.SwipeRegionTs.ContentList",
+      "category": "openHAB",
+      "description": "The list content files in the carousel",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": false,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    },
+    {
+      "name": "data-tchmi-start",
+      "propertyName": "ContentStart",
+      "propertySetterName": "setContentStart",
+      "propertyGetterName": "getContentStart",
+      "displayName": "Content Start",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:framework#/definitions/PositiveNumber",
+      "category": "openHAB",
+      "description": "The start index for the carousel",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": false,
+      "defaultValue": 0,
+      "defaultValueInternal": 0
+    },
+    {
+      "name": "data-tchmi-show-navigation",
+      "propertyName": "ShowNavigation",
+      "propertySetterName": "setShowNavigation",
+      "propertyGetterName": "getShowNavigation",
+      "displayName": "Show Navigation",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/Boolean",
+      "category": "openHAB",
+      "description": "Boolean to show or hide the carousel navigation",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": false,
+      "defaultValue": false,
+      "defaultValueInternal": false
+    },
+    {
+      "name": "data-tchmi-show-navigation-dots",
+      "propertyName": "ShowNavigationDots",
+      "propertySetterName": "setShowNavigationDots",
+      "propertyGetterName": "getShowNavigationDots",
+      "displayName": "Show Navigation Dots",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/Boolean",
+      "category": "openHAB",
+      "description": "Boolean to show or hide the carousel navigation dots",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": false,
+      "defaultValue": true,
+      "defaultValueInternal": true
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [],
+  "events": [],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    }
+  ]
+}

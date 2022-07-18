@@ -1,0 +1,151 @@
+﻿{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "BlindsTs",
+  "namespace": "TcHmi.Controls.TcHmiOpenHabControls",
+  "displayName": "Blind",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.System.TcHmiControl",
+  "description": "Control for controlling blinds",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 71,
+      "height": 71  
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/icon.png",
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "template": "Template.html",
+  "dependencyFiles": [
+    {
+      "name": "BlindsTs.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+    "themes": {
+        "Base": {
+            "resources": [
+                {
+                    "name": "Themes/Base/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        },
+        "Base-Dark": {
+            "resources": [
+                {
+                    "name": "Themes/Base-Dark/Style.css",
+                    "type": "Stylesheet",
+                    "description": "Theme dependent style"
+                }
+            ]
+        }
+    },
+  "attributes": [
+    {
+      "name": "data-tchmi-level",
+      "propertyName": "Level",
+      "propertySetterName": "setLevel",
+      "propertyGetterName": "getLevel",
+      "displayName": "Level",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "openHAB",
+      "description": "The current blind level",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": true,
+      "defaultValue": 0.0,
+      "defaultValueInternal": false
+    },
+    {
+      "name": "data-tchmi-level-mapping",
+      "propertyName": "LevelMapping",
+      "propertySetterName": "setLevelMapping",
+      "propertyGetterName": "getLevelMapping",
+      "displayName": "Level Mapping",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:framework#/definitions/TcHmi.Controls.TcHmiOpenHabControls.BlindsTs.LookupTable",
+      "category": "openHAB",
+      "description": "The current blind level mapping",
+      "readOnly": false,
+      "bindable": false,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": true,
+      "defaultValue": [
+        {
+          "resolvedValue": 0,
+          "rangeStart": 0,
+          "rangeEnd": 17
+        },
+        {
+          "resolvedValue": 5,
+          "rangeStart": 18,
+          "rangeEnd": 32
+        },
+        {
+          "resolvedValue": 10,
+          "rangeStart": 33,
+          "rangeEnd": 47
+        },
+        {
+          "resolvedValue": 25,
+          "rangeStart": 48,
+          "rangeEnd": 59
+        },
+        {
+          "resolvedValue": 50,
+          "rangeStart": 60,
+          "rangeEnd": 69
+        },
+        {
+          "resolvedValue": 75,
+          "rangeStart": 70,
+          "rangeEnd": 99
+        },
+        {
+          "resolvedValue": 100,
+          "rangeStart": 100,
+          "rangeEnd": 101
+        }
+      ],
+      "defaultValueInternal": null
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [],
+  "events": [],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    }
+  ]
+}

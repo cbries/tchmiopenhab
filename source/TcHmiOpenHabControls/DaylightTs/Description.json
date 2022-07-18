@@ -1,0 +1,113 @@
+﻿{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "DaylightTs",
+  "namespace": "TcHmi.Controls.TcHmiOpenHabControls",
+  "displayName": "Daylight",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.TcHmiOpenHabControls.BaseControlTs",
+  "description": "This control visualized the sun state during the day",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 250,
+      "height": 40
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/icon_white.png",
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "template": "Template.html",
+  "dependencyFiles": [
+    {
+      "name": "DaylightTs.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+  "themes": {
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    },
+    "Base-Dark": {
+      "resources": [
+        {
+          "name": "Themes/Base-Dark/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    }
+  },
+  "attributes": [    
+    {
+      "name": "data-tchmi-sunset",
+      "propertyName": "Sunset",
+      "propertySetterName": "setSunset",
+      "propertyGetterName": "getSunset",
+      "displayName": "Sunset",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/DateTime",
+      "category": "openHAB",
+      "description": "Sunset",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    },
+    {
+      "name": "data-tchmi-sunrise",
+      "propertyName": "Sunrise",
+      "propertySetterName": "setSunrise",
+      "propertyGetterName": "getSunrise",
+      "displayName": "Sunrise",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/DateTime",
+      "category": "openHAB",
+      "description": "Sunrise",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "defaultValue": null,
+      "defaultValueInternal": null
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [],
+  "events": [],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    }
+  ]
+}

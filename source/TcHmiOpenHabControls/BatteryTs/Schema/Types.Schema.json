@@ -1,0 +1,16 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.Controls.TcHmiOpenHabControls.BatteryTs": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "BatteryTs",
+      "frameworkControlNamespace": "TcHmi.Controls.TcHmiOpenHabControls"
+    },
+    "TcHmi.Controls.TcHmiOpenHabControls.BatteryTs.BatteryState": {
+      "type": "string",
+      "enum": [ "Idle", "Charging", "Discharging" ],
+      "default": "Idle"
+    }
+  }
+}

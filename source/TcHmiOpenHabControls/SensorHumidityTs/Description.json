@@ -1,0 +1,95 @@
+﻿{
+  "$schema": "../.hmiframework/Schema/ControlDescription.Schema.json",
+  "apiVersion": 1,
+  "name": "SensorHumidityTs",
+  "namespace": "TcHmi.Controls.TcHmiOpenHabControls",
+  "displayName": "Sensor Humidity",
+  "version": {
+    "full": "1.0.0.0",
+    "major": 1,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "visible": true,
+  "themeable": "Standard",
+  "base": "TcHmi.Controls.TcHmiOpenHabControls.BaseControlTs",
+  "description": "Current humidity value",
+  "properties": {
+    "containerControl": false,
+    "geometry": {
+      "width": 75,
+      "height": 75
+    }
+  },
+  "icons": [
+    {
+      "name": "Icons/icon.png",
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "template": "Template.html",
+  "dependencyFiles": [
+    {
+      "name": "SensorHumidityTs.js",
+      "type": "JavaScript",
+      "description": "Contains all the main logic."
+    },
+    {
+      "name": "Style.css",
+      "type": "Stylesheet",
+      "description": "Theme independent style"
+    }
+  ],
+  "themes": {
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    },
+    "Base-Dark": {
+      "resources": [
+        {
+          "name": "Themes/Base-Dark/Style.css",
+          "type": "Stylesheet",
+          "description": "Theme dependent style"
+        }
+      ]
+    }
+  },
+  "attributes": [
+    {
+      "name": "data-tchmi-humidity",
+      "propertyName": "Humidity",
+      "propertySetterName": "setHumidity",
+      "propertyGetterName": "getHumidity",
+      "displayName": "Humidity",
+      "visible": true,
+      "themeable": "Standard",
+      "displayPriority": 100,
+      "type": "tchmi:general#/definitions/Number",
+      "category": "openHAB",
+      "description": "The current humidity",
+      "readOnly": false,
+      "bindable": true,
+      "defaultBindingMode": "OneWay",
+      "heritable": true,
+      "allowSymbolExpressionsInObject": true,
+      "defaultValue": 0.0,
+      "defaultValueInternal": false
+    }
+  ],
+  "attributeCategories": [],
+  "functions": [],
+  "events": [],
+  "dataTypes": [
+    {
+      "schema": "Schema/Types.Schema.json"
+    }
+  ]
+}

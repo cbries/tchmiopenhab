@@ -1,0 +1,30 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "definitions": {
+    "TcHmi.Controls.TcHmiOpenHabControls.SensorHeatingTs": {
+      "type": "object",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkControlType": "SensorHeatingTs",
+      "frameworkControlNamespace": "TcHmi.Controls.TcHmiOpenHabControls"
+    },
+    "TcHmi.Controls.TcHmiOpenHabControls.SensorHeatingTs.HeatMode": {
+      "type": "integer",
+      "enum": [ 1, 2, 3 ],
+      "options": [
+        {
+          "label": "Normal",
+          "value": 1
+        },
+        {
+          "label": "Holiday",
+          "value": 2
+        },
+        {
+          "label": "Summer / Off",
+          "value": 3
+        }
+      ],
+      "default": 3
+    }
+  }
+}

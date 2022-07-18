@@ -1,0 +1,30 @@
+﻿.TcHmi_Controls_TcHmiOpenHabControls_StateTs {
+    overflow: hidden;
+}
+
+.TcHmi_Controls_TcHmiOpenHabControls_StateTs-Template {
+    width: 100%;
+    height: 100%;
+    background-image: url('Icons/dummy64x64.png');
+    background-repeat: no-repeat;
+    /*background-size: cover;*/
+    background-position: center;
+}
+
+.TcHmi_Controls_TcHmiOpenHabControls_StateTs-Template .labelName {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 0%;
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+}
+
+    .TcHmi_Controls_TcHmiOpenHabControls_StateTs-Template .labelState {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        position: absolute;
+        bottom: 0;
+    }
