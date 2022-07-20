@@ -70,7 +70,7 @@ namespace TcHmiOpenHabExtension.openhab.Items
                         if(string.IsNullOrEmpty(sstate))
                             return (Item as IOhItemNumber)?.Value ?? 0.0;
 
-                        return sstate.ToDouble();
+                        return sstate.ToDoubleWithOpenHabUnit();
                     }
                     break;
 
