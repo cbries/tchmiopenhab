@@ -99,7 +99,8 @@ var TcHmi;
                     /* @ts-ignore */
                     let t = moment(this.__daylightNow).format('LTS');
                     /* @ts-ignore */
-                    if (moment().second() == 30 || forcePositionCalculation) {
+                    if (moment().second() % 10 == 0 || forcePositionCalculation) {
+                        this.__calculatePercentages();
                         if (this.__elementContainer != null && this.__daylightNow != null) {
                             let w = this.__elementContainer.css("width");
                             let leftCalc = 'calc(' + this.__percentageDayDone + '% - (' + w + ' / 2))';

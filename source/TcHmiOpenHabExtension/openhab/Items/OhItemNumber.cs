@@ -16,7 +16,7 @@ namespace TcHmiOpenHabExtension.openhab.Items
             if (!base.Parse(tkn)) return false;
 
             if (!string.IsNullOrEmpty(State))
-                Value = State.ToDouble();
+                Value = State.ToDoubleWithOpenHabUnit();
 
             var o = tkn as JObject;
             if (o["stateDescription"] is JObject stateDescription)
