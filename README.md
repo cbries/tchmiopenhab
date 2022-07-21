@@ -32,13 +32,10 @@ https://www.beckhoff.com/en-en/products/automation/twincat-3-hmi/
 
 https://www.beckhoff.com/en-en/products/automation/twincat/te1xxx-twincat-3-engineering/te2000.html
 
-> The TwinCAT 3 HMI (human-machine interface) integrates itself into the well-known Visual Studio® development environment. Based on the latest web technologies (HTML5, JavaScript), it allows the user to develop platform-independent user interfaces that are responsive, i.e. they automatically adapt to the screen resolution, size and orientation at hand. With the graphical WYSIWYG (what-you-see-is-what-you-get) editor, controls can be easily arranged via drag-and-drop and linked with real-time variables.
-
-The HMI is extensible on all levels. Mixing standard controls with custom design elements makes designing your own HMI easy. User controls can also be created and configured by modifying the standard controls to create your own toolbox. To create more complex pages, pre-defined designer templates can be integrated.
-
-On the client side, the HMI logic can be implemented in JavaScript or as a so-called server extension in .NET, which allows users to protect their know-how.
-
-TwinCAT 3 HMI Engineering is free of charge.
+> The TwinCAT 3 HMI (human-machine interface) integrates itself into the well-known Visual StudioÂ® development environment. Based on the latest web technologies (HTML5, JavaScript), it allows the user to develop platform-independent user interfaces that are responsive, i.e. they automatically adapt to the screen resolution, size and orientation at hand. With the graphical WYSIWYG (what-you-see-is-what-you-get) editor, controls can be easily arranged via drag-and-drop and linked with real-time variables.
+> The HMI is extensible on all levels. Mixing standard controls with custom design elements makes designing your own HMI easy. User controls can also be created and configured by modifying the standard controls to create your own toolbox. To create more complex pages, pre-defined designer templates can be integrated.
+> On the client side, the HMI logic can be implemented in JavaScript or as a so-called server extension in .NET, which allows users to protect their know-how.
+> TwinCAT 3 HMI Engineering is free of charge.
 
 # Previews
 
