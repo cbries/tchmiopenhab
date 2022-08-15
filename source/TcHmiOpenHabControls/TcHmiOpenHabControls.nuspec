@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
 	<metadata>
 		<id>TcHmiOpenHabControls</id>
-		<version>1.0.0</version>
+		<version>1.1.0</version>
 		<title>TcHmiOpenHabControls</title>
 		<authors>Christian Benjamin Ries</authors>
 		<owners>Christian Benjamin Ries</owners>
@@ -17,7 +17,7 @@
 		<dependencies>
 			<group targetFramework="native1.12-tchmi">
 				<dependency id="Microsoft.TypeScript.MSBuild" version="4.7.4" />
-				<dependency id="Beckhoff.TwinCAT.HMI.Controls" version="12.756.1" />
+				<dependency id="Beckhoff.TwinCAT.HMI.Controls" version="12.758.0" />
 			</group>
 		</dependencies>
 	</metadata>

@@ -49,6 +49,7 @@ namespace TcHmiOpenHabExtension.openhab.Items
                     break;
 
                 case "String":
+                case "Image":
                     var stringInstance = new OhItemString();
                     if (stringInstance.Parse(obj))
                         instance = stringInstance;

@@ -160,6 +160,8 @@
                                             outsideThis.__sendHeatCommand(i + 15);
                                         });
 
+                                        outsideThis.__clickEventInstances.push(ctrl.instance);
+
                                     } else if (i == 9) {
                                         //
                                         // Current Temperature
@@ -208,6 +210,15 @@
                                 }
 
                                 this.__listOfDestroyFunctions = new Array();
+
+                                //
+                                // cleanup "click" events
+                                //
+                                const maxIdx = outsideThis.__clickEventInstances.length;
+                                for (let i = 0; i < maxIdx; ++i) {
+                                    let ctrl = outsideThis.__clickEventInstances[i];
+                                    ctrl?.off("click");
+                                }
 
                                 region?.destroy();
                             }
