@@ -184,7 +184,7 @@
 
                     let convertedValue = TcHmi.ValueConverter.toString(valueNew);
                     if (convertedValue === null || undefined) {
-                        convertedValue = this.getAttributeDefaultValueInternal("__switchStateEnabled") as string;
+                        convertedValue = this.getAttributeDefaultValueInternal("StateEnabled") as string;
                     }
                     this.__switchStateEnabled = convertedValue as string;
                     TcHmi.EventProvider.raise(this.__id + ".onFunctionResultChanged", ["getStateEnabled"]);

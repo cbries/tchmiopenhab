@@ -14,6 +14,10 @@ var TcHmi;
                 constructor(element, pcElement, attrs) {
                     /** Call base class constructor */
                     super(element, pcElement, attrs);
+                    /**
+                     * List of control for which jQuery click events registration has to be removed.
+                     */
+                    this.__clickEventInstances = [];
                     this.__onResolverForTextColorWatchCallback = (data) => {
                         if (this.__isAttached === false) {
                             // While not attached attribute should only be processed once during initializing phase.

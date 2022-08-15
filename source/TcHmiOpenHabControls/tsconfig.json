@@ -11,9 +11,7 @@
       "es6",
       "es2017.intl"
     ],
-    "types": [
-      
-    ],
+    "types": [],
     "declaration": true,
     "sourceMap": true,
     "noEmitOnError": true,
@@ -29,14 +27,14 @@
   },
   "include": [
     "Libs/moment.d.ts",
-    "../Packages/Beckhoff.TwinCAT.HMI.Framework.12.759.123-dev/runtimes/native1.12-tchmi/TcHmi.d.ts",
-    "../Packages/Beckhoff.TwinCAT.HMI.Framework.12.759.123-dev/runtimes/native1.12-tchmi/Controls/System/TcHmiRegion/TcHmiRegion.d.ts",
-    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.759.123-dev/runtimes/native1.12-tchmi/TcHmiImage/TcHmiImage.d.ts",
-    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.759.123-dev/runtimes/native1.12-tchmi/TcHmiButton/TcHmiButton.d.ts",
-    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.759.123-dev/runtimes/native1.12-tchmi/TcHmiComboBox/TcHmiComboBox.d.ts",
-    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.759.123-dev/runtimes/native1.12-tchmi/TcHmiCheckBox/TcHmiCheckBox.d.ts",
-    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.759.123-dev/runtimes/native1.12-tchmi/TcHmiToggleSwitch/TcHmiToggleSwitch.d.ts",
-    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.759.123-dev/runtimes/native1.12-tchmi/TcHmiTachometer/TcHmiTachometer.d.ts"
+    "../Packages/Beckhoff.TwinCAT.HMI.Framework.12.759.1779-dev/runtimes/native1.12-tchmi/TcHmi.d.ts",
+    "../Packages/Beckhoff.TwinCAT.HMI.Framework.12.759.1779-dev/runtimes/native1.12-tchmi/Controls/System/TcHmiRegion/TcHmiRegion.d.ts",
+    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.759.1779-dev/runtimes/native1.12-tchmi/TcHmiImage/TcHmiImage.d.ts",
+    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.759.1779-dev/runtimes/native1.12-tchmi/TcHmiButton/TcHmiButton.d.ts",
+    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.759.1779-dev/runtimes/native1.12-tchmi/TcHmiComboBox/TcHmiComboBox.d.ts",
+    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.759.1779-dev/runtimes/native1.12-tchmi/TcHmiCheckBox/TcHmiCheckBox.d.ts",
+    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.759.1779-dev/runtimes/native1.12-tchmi/TcHmiToggleSwitch/TcHmiToggleSwitch.d.ts",
+    "../Packages/Beckhoff.TwinCAT.HMI.Controls.12.759.1779-dev/runtimes/native1.12-tchmi/TcHmiTachometer/TcHmiTachometer.d.ts"
   ],
   "files": [
     "BaseControlTs/BaseControlTs.ts",

@@ -138,6 +138,7 @@ var TcHmi;
                                     (_b = ctrl.instance) === null || _b === void 0 ? void 0 : _b.on("click", () => {
                                         outsideThis.__sendHeatCommand(i + 15);
                                     });
+                                    outsideThis.__clickEventInstances.push(ctrl.instance);
                                 }
                                 else if (i == 9) {
                                     //
@@ -176,6 +177,14 @@ var TcHmi;
                                     fncDestroy();
                                 }
                                 this.__listOfDestroyFunctions = new Array();
+                                //
+                                // cleanup "click" events
+                                //
+                                const maxIdx = outsideThis.__clickEventInstances.length;
+                                for (let i = 0; i < maxIdx; ++i) {
+                                    let ctrl = outsideThis.__clickEventInstances[i];
+                                    ctrl === null || ctrl === void 0 ? void 0 : ctrl.off("click");
+                                }
                                 region === null || region === void 0 ? void 0 : region.destroy();
                             }
                         });

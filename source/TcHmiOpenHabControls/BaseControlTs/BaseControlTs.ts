@@ -12,6 +12,11 @@
                 protected __elementTemplateRoot!: JQuery;
 
                 /**
+                 * List of control for which jQuery click events registration has to be removed.
+                 */
+                protected __clickEventInstances: Array<any> = [];
+
+                /**
                  * This ist the element which get the font settings applied.
                  * E.g. `this.__elementContainer = this.__elementTemplateRoot.find('.label');`
                  * Should be called by all specializations of this control.

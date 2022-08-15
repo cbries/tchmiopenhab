@@ -20,6 +20,8 @@
 
                 protected __elementTemplateRoot!: JQuery;
 
+                protected __clickEventInstances: Array<any> = [];
+
                 public __previnit() {
                     // Fetch template root element
                     this.__elementTemplateRoot = this.__element.find('.TcHmi_Controls_TcHmiOpenHabControls_BlindsTs-Template');
@@ -53,33 +55,43 @@
                                     //
                                     let btnOpen100 = regionElement?.find('#BlindsTs_Button_Auf');
                                     btnOpen100?.on("click", () => { outsideThis.__sendBlindState(100); });
+                                    outsideThis.__clickEventInstances.push(btnOpen100);
 
                                     let btnOpen75 = regionElement?.find('#BlindsTs_Button_Auf_75');
                                     btnOpen75?.on("click", () => { outsideThis.__sendBlindState(75); });
+                                    outsideThis.__clickEventInstances.push(btnOpen75);
 
                                     let btnOpen50 = regionElement?.find('#BlindsTs_Button_Auf_50');
                                     btnOpen50?.on("click", () => { outsideThis.__sendBlindState(50); });
+                                    outsideThis.__clickEventInstances.push(btnOpen50);
 
                                     let btnOpen25 = regionElement?.find('#BlindsTs_Button_Auf_25');
                                     btnOpen25?.on("click", () => { outsideThis.__sendBlindState(25); });
+                                    outsideThis.__clickEventInstances.push(btnOpen25);
 
                                     let btnOpen10 = regionElement?.find('#BlindsTs_Button_Auf_10');
                                     btnOpen10?.on("click", () => { outsideThis.__sendBlindState(10); });
+                                    outsideThis.__clickEventInstances.push(btnOpen10);
 
                                     let btnOpenLamellen = regionElement?.find('#BlindsTs_Button_Auf_Lamellen');
                                     btnOpenLamellen?.on("click", () => { outsideThis.__sendBlindState(1); });
+                                    outsideThis.__clickEventInstances.push(btnOpenLamellen);
 
                                     let btnCloseFull = regionElement?.find('#BlindsTs_Button_Geschlossen');
                                     btnCloseFull?.on("click", () => { outsideThis.__sendBlindState(0); });
+                                    outsideThis.__clickEventInstances.push(btnCloseFull);
 
                                     let btnUp = regionElement?.find('#BlindsTs_Button_Up');
                                     btnUp?.on("click", () => { outsideThis.__sendBlindCommand("UP") });
+                                    outsideThis.__clickEventInstances.push(btnUp);
 
                                     let btnStop = regionElement?.find('#BlindsTs_Button_Stop');
                                     btnStop?.on("click", () => { outsideThis.__sendBlindCommand("STOP") });
+                                    outsideThis.__clickEventInstances.push(btnStop);
 
                                     let btnDown = regionElement?.find('#BlindsTs_Button_Down');
                                     btnDown?.on("click", () => { outsideThis.__sendBlindCommand("DOWN") });
+                                    outsideThis.__clickEventInstances.push(btnDown);
 
                                     // Destroy to free event resources if event is no longer needed.
                                     destroyEvent();
@@ -129,6 +141,15 @@
                                 removeCb: (data) => {
                                     if (data.canceled) {
                                         // user clicked on background
+                                    }
+
+                                    //
+                                    // cleanup "click" events
+                                    //
+                                    const maxIdx = outsideThis.__clickEventInstances.length;
+                                    for (let i = 0; i < maxIdx; ++i) {
+                                        let ctrl = outsideThis.__clickEventInstances[i];
+                                        ctrl?.off("click");
                                     }
 
                                     region?.destroy();
@@ -215,6 +236,10 @@
                     let symbolExpression = new TcHmi.SymbolExpression(levelSymbol);
                     if (TcHmi.Server.isWebsocketReady()) {
                         let symbolName = symbolExpression.getContent() as string;
+
+                        //console.log("symbolName: " + symbolName);
+                        //console.log("targetValue: " + targetValue);
+
                         TcHmi.Server.writeSymbol(symbolName, targetValue,);
                     }
                 }

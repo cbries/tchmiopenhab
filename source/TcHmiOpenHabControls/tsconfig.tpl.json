@@ -11,9 +11,7 @@
       "es6",
       "es2017.intl"
     ],
-    "types": [
-      
-    ],
+    "types": [],
     "declaration": true,
     "sourceMap": true,
     "noEmitOnError": true,

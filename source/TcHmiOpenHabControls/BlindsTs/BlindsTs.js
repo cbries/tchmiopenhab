@@ -9,6 +9,7 @@ var TcHmi;
                 constructor(element, pcElement, attrs) {
                     /** Call base class constructor */
                     super(element, pcElement, attrs);
+                    this.__clickEventInstances = [];
                 }
                 __previnit() {
                     // Fetch template root element
@@ -35,24 +36,34 @@ var TcHmi;
                             //
                             let btnOpen100 = regionElement === null || regionElement === void 0 ? void 0 : regionElement.find('#BlindsTs_Button_Auf');
                             btnOpen100 === null || btnOpen100 === void 0 ? void 0 : btnOpen100.on("click", () => { outsideThis.__sendBlindState(100); });
+                            outsideThis.__clickEventInstances.push(btnOpen100);
                             let btnOpen75 = regionElement === null || regionElement === void 0 ? void 0 : regionElement.find('#BlindsTs_Button_Auf_75');
                             btnOpen75 === null || btnOpen75 === void 0 ? void 0 : btnOpen75.on("click", () => { outsideThis.__sendBlindState(75); });
+                            outsideThis.__clickEventInstances.push(btnOpen75);
                             let btnOpen50 = regionElement === null || regionElement === void 0 ? void 0 : regionElement.find('#BlindsTs_Button_Auf_50');
                             btnOpen50 === null || btnOpen50 === void 0 ? void 0 : btnOpen50.on("click", () => { outsideThis.__sendBlindState(50); });
+                            outsideThis.__clickEventInstances.push(btnOpen50);
                             let btnOpen25 = regionElement === null || regionElement === void 0 ? void 0 : regionElement.find('#BlindsTs_Button_Auf_25');
                             btnOpen25 === null || btnOpen25 === void 0 ? void 0 : btnOpen25.on("click", () => { outsideThis.__sendBlindState(25); });
+                            outsideThis.__clickEventInstances.push(btnOpen25);
                             let btnOpen10 = regionElement === null || regionElement === void 0 ? void 0 : regionElement.find('#BlindsTs_Button_Auf_10');
                             btnOpen10 === null || btnOpen10 === void 0 ? void 0 : btnOpen10.on("click", () => { outsideThis.__sendBlindState(10); });
+                            outsideThis.__clickEventInstances.push(btnOpen10);
                             let btnOpenLamellen = regionElement === null || regionElement === void 0 ? void 0 : regionElement.find('#BlindsTs_Button_Auf_Lamellen');
                             btnOpenLamellen === null || btnOpenLamellen === void 0 ? void 0 : btnOpenLamellen.on("click", () => { outsideThis.__sendBlindState(1); });
+                            outsideThis.__clickEventInstances.push(btnOpenLamellen);
                             let btnCloseFull = regionElement === null || regionElement === void 0 ? void 0 : regionElement.find('#BlindsTs_Button_Geschlossen');
                             btnCloseFull === null || btnCloseFull === void 0 ? void 0 : btnCloseFull.on("click", () => { outsideThis.__sendBlindState(0); });
+                            outsideThis.__clickEventInstances.push(btnCloseFull);
                             let btnUp = regionElement === null || regionElement === void 0 ? void 0 : regionElement.find('#BlindsTs_Button_Up');
                             btnUp === null || btnUp === void 0 ? void 0 : btnUp.on("click", () => { outsideThis.__sendBlindCommand("UP"); });
+                            outsideThis.__clickEventInstances.push(btnUp);
                             let btnStop = regionElement === null || regionElement === void 0 ? void 0 : regionElement.find('#BlindsTs_Button_Stop');
                             btnStop === null || btnStop === void 0 ? void 0 : btnStop.on("click", () => { outsideThis.__sendBlindCommand("STOP"); });
+                            outsideThis.__clickEventInstances.push(btnStop);
                             let btnDown = regionElement === null || regionElement === void 0 ? void 0 : regionElement.find('#BlindsTs_Button_Down');
                             btnDown === null || btnDown === void 0 ? void 0 : btnDown.on("click", () => { outsideThis.__sendBlindCommand("DOWN"); });
+                            outsideThis.__clickEventInstances.push(btnDown);
                             // Destroy to free event resources if event is no longer needed.
                             destroyEvent();
                         });
@@ -95,6 +106,14 @@ var TcHmi;
                             removeCb: (data) => {
                                 if (data.canceled) {
                                     // user clicked on background
+                                }
+                                //
+                                // cleanup "click" events
+                                //
+                                const maxIdx = outsideThis.__clickEventInstances.length;
+                                for (let i = 0; i < maxIdx; ++i) {
+                                    let ctrl = outsideThis.__clickEventInstances[i];
+                                    ctrl === null || ctrl === void 0 ? void 0 : ctrl.off("click");
                                 }
                                 region === null || region === void 0 ? void 0 : region.destroy();
                             }
@@ -178,6 +197,8 @@ var TcHmi;
                     let symbolExpression = new TcHmi.SymbolExpression(levelSymbol);
                     if (TcHmi.Server.isWebsocketReady()) {
                         let symbolName = symbolExpression.getContent();
+                        //console.log("symbolName: " + symbolName);
+                        //console.log("targetValue: " + targetValue);
                         TcHmi.Server.writeSymbol(symbolName, targetValue);
                     }
                 }
